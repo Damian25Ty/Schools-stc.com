@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teachers Portal</title>
+    <style>
+     body{
+    background: linear-gradient(to right, #0825c9, #1a9e9e, #788694);
+    font-family: 'poppins', sans-serif;
+    padding: 15rem;
+}
+
+#form{
+ width: 300px;
+ margin: 0vh auto 0 auto;
+ padding: 20px;
+ background-color: whitesmoke;
+ border-radius: 4px;
+ font-size: 16px;   
+ text-align: center;
+}
+    </style>
+</head>
+<body>
+    <form id="form" action="TLogin.html">
+    <label for="Tname">Teachers Name:</label><br><input id="Tname" title="Name must only be characters from Aa-Zz! " pattern="[a -zA-Z]{3,25}" type="text"required><br><br>
+    <label for="Tpassword">Create Password:</label> <input id="Tpass" type="text"required><br><br>
+    <label for="Phone">Phone NO.:</label><br><input id="Phone" title="Phone number must be atleast 11 digits! " pattern="[0-9]{11}" type="text"required><br><br>
+    <button>SIGN UP</button>
+</form>
+<h1>Sign up for an account. Login if you already have an account: <a href="TLogin.html">LOGIN</a></h1>
+    <script>
+        const Tname = document.getElementById("Tname");
+        const Tpassword = document.getElementById("Tpass");
+        const PHONE = document.getElementById("Phone");
+        const form = document.getElementById('form');
+        // For Forget page
+        form.addEventListener('submit', function(e){
+            e.preventDefault();
+            const TnameValue = Tname.value;
+            const TPHONEValue = PHONE.value;
+            window.alert(PHONEValue);
+            localStorage.setItem('Tnames', TnameValue);
+            localStorage.setItem('TPHONE', TPHONEValue);
+            window.location.href = "TForgetPass.html";
+        })
+        // For Profile Page
+        form.addEventListener('submit', function(e) {
+           e.preventDefault();
+           const TnameValue = Tname.value;
+           const TpasswordValue = Tpassword.value;
+           const PhoneValue = Phone.value;
+           
+           localStorage.setItem('Tnames', TnameValue);
+           localStorage.setItem('Tpasswords', TpasswordValue);
+           localStorage.setItem('PHONE', PhoneValue);
+           
+           window.location.href = "TProfile.html";
+           })
+
+form.addEventListener('submit', function(e) {
+e.preventDefault();
+const TnameValue = Tname.value;
+const TpasswordValue = Tpassword.value;
+const TPHONEValue = PHONE.value;
+
+localStorage.setItem('Tnames', TnameValue);
+localStorage.setItem('Tpasswords', TpasswordValue);
+localStorage.setItem('TPHONE', TPHONEValue);
+
+window.location.href = "TLogin.html";
+
+Tname.value = '';
+Tpassword.value = '';
+APHONE.value = ''; 
+})
+    </script>
+</body>
+</html>

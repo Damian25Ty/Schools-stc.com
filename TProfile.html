@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PROFILE</title>
+    <style>
+             body{
+  background: linear-gradient(to right, #e6f3fa, #f1ecdf, #c8ecca);
+  font-family: 'poppins', sans-serif;
+  padding: 0.1rem;
+}
+
+#home{
+  display: grid;
+  grid-template-columns: repeat(16, 1fr);
+  padding: 0;
+  background-color: green;
+}
+button{
+  background: green;
+  border-radius: 50px;
+  font-weight: bold;
+  cursor: pointer;
+}
+button:hover{
+            background-color: rgb(10, 182, 38);
+        }
+
+        button:active{
+            background-color: rgb(119, 197, 132);
+        }
+    </style>
+</head>
+<body>
+    <form>
+        <div id="home">
+            <button formaction="Thome.html" style="border: 0;">HOME</button><br><br>
+            <button formaction="TProfile.html" style="border: 0;">PROFILE</button><br><br>
+            <button formaction="student.html" style="border: 0;">Result Making</button><br><br>
+            <button formaction="TAnouncement.html" style="border: 0;">School Anouncement</button>
+          </div>
+        </form>
+    <form id="form" action="TAddress.html">
+        <div style="padding: 1px;font-size: 30px;background-color: blue;"><label><b>My Profile</b></label></div>
+    <div style="background-color: blue;"><img src="" id="display" width="250" height="250"><input type="file" onchange="uploadimage()"><Pre style="font-size: 30px;text-align: left;padding: 0;">               <label for="Name">Full Name:</label>                       <label id="Name">y</label></Pre><br>
+        <Pre style="font-size: 30px;text-align: left;padding: 3rem;">             <label for="">Mobile Number:</label>                  <label id="Phone" style="color: black;"></label></Pre><br>
+        <Pre style="font-size: 30px;text-align: left;padding: 0">                <label for="">Address:</label>                        <label id="Address" style="color: black;">Click Update to add your address:</label><button>Update</button></Pre>
+        <Pre style="font-size: 30px;text-align: left;padding: 0"> </Pre>
+        <Pre style="font-size: 30px;text-align: left;padding: 0"> </Pre>
+        <Pre style="font-size: 30px;text-align: left;padding: 0"> </Pre>
+    </div></form>
+    <script>
+        // Details from Sign UP Page
+       const Name = localStorage.getItem('Tnames');
+       const Password = localStorage.getItem('Tpasswords');
+       const Phone = localStorage.getItem('PHONE');
+       const Addres = localStorage.getItem('TAddress');
+       
+       // Details for Profile Page
+       const NAME = document.getElementById('Name')
+       const PHONE = document.getElementById('Phone')
+       const Address = document.getElementById('Address')
+       const Upbutton = document.getElementById('Update')
+       const AddressInput = document.getElementById('Input')
+
+       function uploadimage(){
+            var display = document.getElementById("display");
+            display.src = URL.createObjectURL(event.target.files[0]);
+            displayValue = display.src
+            localStorage.setItem('Display', displayValue);
+        }
+        const Display = localStorage.getItem('Display');
+        document.getElementById('display').src = Display;  
+
+       if(NAME){
+        NAME.textContent = Name;
+       }
+
+       if(PHONE){
+        PHONE.textContent = Phone;
+       }
+
+
+        if(Address){
+            Address.textContent = Addres;
+            
+        }
+    
+    </script>
+</body>
+</html>

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PARENT ADMIN PAGE</title>
+    <style>
+         body{
+            background-color: black;
+            text-align: center;
+            color: white;
+        }
+        h1{
+            color: white;
+            text-align: left;
+        }
+        #form{
+            background-color: blue;
+            width: 500px;
+            height: 500px;
+            text-align: center;
+            padding: 1rem;
+            padding-right: 1rem;
+            border-radius: 10px;
+        }
+        #myDiv{
+            background-color: white;
+            color: black;
+            text-align: left;
+            font-size: 20px;     
+            flex: 1;
+            overflow-y: scroll;
+             height: 450px;
+        }
+
+        #myInput{
+            padding: 11px;
+            text-align: left;
+            font-size: 16px;
+            width:450px;
+            border-radius: 4px;
+            
+        }
+
+        p{
+            display: flex;
+        }
+        #home{
+  display: grid;
+  grid-template-columns: repeat(16, 1fr);
+  padding: 0;
+  background-color: green;
+}
+button{
+  background: green;
+  border-radius: 50px;
+  font-weight: bold;
+  cursor: pointer;
+}
+button:hover{
+            background-color: rgb(10, 182, 38);
+        }
+
+        button:active{
+            background-color: rgb(119, 197, 132);
+        }
+    </style>
+</head>
+<body>
+    <form><div id="home">
+        <button formaction="Ahome.html" style="border: 0;">HOME</button><br><br>
+        <button formaction="AProfile.html" style="border: 0;">PROFILE</button><br><br>
+        <button formaction="THead.html" style="border: 0;">Teachers Anouncement</button><br><br>
+        <button formaction="PHead.html" style="border: 0;">Parents Anouncement</button>
+      </div>
+      </form>
+    <h1>ANOUNCEMENT FOR PARENTS</h1>
+    <form id="form" action="PAnouncement.html">
+    <button type="reset" style="border-radius:10px;background-color: bisque;">Refresh</button><div id="myDiv"></div><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+</form>
+<form id="Form">
+<p><input id="myInput"required><button id="btn" style="border-radius: 8px;background-color: green;width: 100px;">Send</button></p>
+</form>
+<script>
+    const myDiv = document.getElementById('myDiv');
+    const myInput = document.getElementById('myInput');
+    const form = document.getElementById('form')
+    const Form = document.getElementById('Form')
+
+   Form.addEventListener('submit', function(e) {
+    e.preventDefault();
+    if(myInput){
+        myDiv.innerHTML += myInput.value + "<br>";
+        myInput.value = '';
+    }
+})
+Form.addEventListener('submit',function(e){
+        e.preventDefault();
+        
+       if(MyDiv = myDiv.textContent)
+        if(localStorage.setItem('myPDiv', MyDiv)){
+
+        window.location.href = "PAnouncement.html";}
+
+    })
+
+   form.addEventListener('reset', function(e){
+    e.preventDefault();
+    if(myDiv){
+        myDiv.innerHTML = "";
+    }
+   })
+</script>
+</body>
+</html>

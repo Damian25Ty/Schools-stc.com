@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ANOUNCEMENT</title>
+    <style>
+body{
+  background: black;
+  font-family: 'poppins', sans-serif;
+  text-align: center;
+}
+#form{
+ width: 500px;
+ margin: 0vh auto 0 auto;
+ padding: 20px;
+ background-color: rgb(241, 241, 243);
+ border-radius: 4px;
+ font-size: 16px;   
+ text-align: left;
+}
+#bg{
+    background-color: blue;
+    border-radius: 10px;
+    width: 700px;
+    height: 650px;
+    margin: 0vh auto 0 auto;
+    padding: 20px;
+    text-align: center;
+}
+
+#home{
+  display: grid;
+  grid-template-columns: repeat(16, 1fr);
+  padding: 0;
+  background-color: green;
+}
+button{
+  background: green;
+  border-radius: 50px;
+  font-weight: bold;
+  cursor: pointer;
+}
+button:hover{
+            background-color: rgb(10, 182, 38);
+        }
+
+        button:active{
+            background-color: rgb(119, 197, 132);
+        }
+    </style>
+</head>
+<body>
+    <body><form><div id="home">
+        <button formaction="Phome.html" style="border: 0;">HOME</button><br><br>
+        <button formaction="PProfile.html" style="border: 0;">PROFILE</button><br><br>
+        <button formaction="Result.html" style="border: 0;">Check Result</button><br><br>
+        <button formaction="PAnouncement.html" style="border: 0;">School Anouncement</button>
+      </div> 
+      </form>
+      <h1 style="color: white; text-align: center;">ANOUNCEMENT</h1>
+<div id="bg">
+ <form id="form"><div id="Abg"> <article style="font-size:20px;height:580px;overflow-y: scroll;" id="Anounce"></article>
+                </div>
+ </form>
+</div>
+    <script>
+      const Mydiv = document.getElementById("Anounce");
+      const myDiv = localStorage.getItem('myPDiv');
+      if(Mydiv){
+        Mydiv.textContent += myDiv;
+      }
+      /*const dataElement = document.getElementById("Anounce");
+        const urlParams = new URLSearchParams(window.location.search);
+        const storeData1 = urlParams.get("data1");
+        dataElement.textContent += storeData1 ? decodeURIComponent(storeData1) : "No data found"*/
+      
+        
+  </script>
+</body>
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forgotten Password</title>
+    <style>
+   body{
+    background: linear-gradient(to right, #0fd240, #1a9e9e, #788694);
+    font-family: 'poppins', sans-serif;
+    padding: 15rem;
+}
+#form{
+ width: 300px;
+ margin: 0vh auto 0 auto;
+ padding: 20px;
+ background-color: whitesmoke;
+ border-radius: 40px;
+ font-size: 16px;   
+ text-align: center;
+}
+        #error{
+  text-align: center;
+  position: center;
+-webkit-text-fill-color: rgb(120, 10, 10);  
+
+}
+    </style>
+</head>
+<body>
+    <h1 style="text-align: center;">Enter your details that you used on this account the last time you logged in:</h1ss><br>
+    
+    
+    <div id="error"></div>
+    <form id="form" action="PLogin.html">
+    <label for="name" style="font-size: 30px;">Name:</label><br><input style="font-size: 25px;text-align: center;" title="Name must only be characters from Aa-Zz! " pattern="[a -zA-Z]{3,25}" type="text" id="Name"required><br> <br><br>
+    <label for="Phone" style="font-size: 30px;">Phone NO:</label><br><input style="font-size: 25px;text-align: center;" title="Phone number must be atleast 11 digits! " pattern="[0-9]{11}" type="text" id="Phone"required><br><br><br>
+    <label for="New-Password" style="font-size: 20px;">Create New Password:</label><br><input style="font-size: 25px;text-align: center;" type="text" id="NPass" title="Password must contain atleast 6 digits. NO special characters! " pattern="[a -zA-Z0-9]{6,15}"required>
+    <br><br><button>submit</button>
+</form>
+<script>
+    const Phone = document.getElementById('Phone');
+const Name = document.getElementById('Name');
+const NPass = document.getElementById('NPass');
+const form = document.getElementById('form');
+
+const PPHONE = localStorage.getItem('PPHONE');
+const NAME = localStorage.getItem('Pnames');
+const errrorElement = document.getElementById('error')
+console.log(PPHONE);
+console.log(NAME);
+
+form.addEventListener('submit', function(e) {
+    let messages = [];
+    if(Phone.value !=  PPHONE){
+        messages.push('Enter the number you used on your last login' )
+    }
+    if(Name.value !=  NAME){
+        messages.push('Enter the name you used on your last login' )
+    }
+    if (messages.length >0) {
+        e.preventDefault()
+        errrorElement.innerText = messages.join(', ')
+    }
+    Phone.value = '';
+    Name.value = '';
+})
+
+form.addEventListener('submit', function(e){
+    let messages = []
+    const NPassValue = NPass.value;
+    localStorage.setItem('NPass', NPassValue);
+    
+    
+    if (messages.length >0) {
+        e.preventDefault()
+        errrorElement.innerText = messages.join(', ')
+        window.location.href = "PLogin.html";
+    }
+    NPass.value = '';
+})
+</script>
+</body>
+</html>

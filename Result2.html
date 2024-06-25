@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <script defer src="EDAFE JUSTICE.js"></script>
+    <style>
+        body{
+    background: linear-gradient(to right, #0f2029, #041414, #052545);
+    font-family: 'poppins', sans-serif;
+    padding: 15rem;
+}
+
+#form{
+ width: 300px;
+ margin: 0vh auto 0 auto;
+ padding: 20px;
+ background-color: whitesmoke;
+ border-radius: 4px;
+ font-size: 12px;   
+ text-align: center;
+}
+#error{
+  text-align: center;
+  position: center;
+-webkit-text-fill-color: red;  
+
+}
+    </style>
+</head>
+<body>
+    <div id="error"></div>
+    <form action="result/ERIS WORK/EDAFE JUSTICE.pdf" id="form" method="get">
+        <div>
+            <input type="text" name="name" placeholder="Name Of Student" id="name" required >
+            <br>
+            <br>
+        </div>
+        <div>
+
+            <input type="text" name="code" placeholder="Input Scratch Code" id="code" required>
+        </div>
+        <br>
+        <button type="submit">Submit</button>
+    </form>
+    <script>
+        const code = document.getElementById('code')
+const CheckName = document.getElementById('name')
+const form = document.getElementById('form')
+const btn = document.getElementById('submit')
+const errrorElement = document.getElementById('error')
+const name = 'EDAFE JUSTICE';
+
+form.addEventListener('submit', (e) => {
+    let messages = []
+    if (CheckName.value === '' || CheckName.value == null){
+        messages.push('Name is required')
+    }
+    if (CheckName.value != name){
+        messages.push('This name is not recognised')
+    }
+    if (code.value === '' || code.value == null) {
+        messages.push('Scratch card code is required')
+    }
+    if (code.value !=131575) {
+
+        messages.push('enter the correct code from the scratch card')
+    }
+    if (messages.length >0) {
+        e.preventDefault()
+        errrorElement.innerText = messages.join(', ')
+    }
+})
+</script>
+</body>
+</html>
